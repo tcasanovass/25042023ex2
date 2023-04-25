@@ -49,7 +49,7 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/admin2/ontologies/2023/3/wine#agedInMaterial">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Wine"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Award"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Material"/>
     </owl:ObjectProperty>
     
 
