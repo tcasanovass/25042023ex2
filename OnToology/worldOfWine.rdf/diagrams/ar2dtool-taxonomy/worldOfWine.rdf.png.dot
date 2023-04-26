@@ -1,0 +1,22 @@
+digraph ar2dtool_diagram { 
+rankdir=LR;
+size="1000"
+node [shape = rectangle, color="black"]; "wine:SparklingWine" "wine:RedWine" "wine:NonFortifiedWine" "wine:FortifiedWine" "wine:Material" "wine:Wood" "wine:WhiteWine" "wine:Steel" "wine:Pine" "wine:Oak" "wine:Metal" "wine:Wine" "wine:HighAcidityWine" "wine:YoungWine" "wine:NonSparklingWine" "wine:PremiumWine" "wine:Cherry" "wine:RoseWine" ; /*classes style*/
+	"wine:Metal" -> "wine:Material" [ label = "rdfs:subClassOf" ];
+	"wine:Wood" -> "wine:Material" [ label = "rdfs:subClassOf" ];
+	"wine:HighAcidityWine" -> "wine:Wine" [ label = "rdfs:subClassOf" ];
+	"wine:Oak" -> "wine:Wood" [ label = "rdfs:subClassOf" ];
+	"wine:Pine" -> "wine:Wood" [ label = "rdfs:subClassOf" ];
+	"wine:RedWine" -> "wine:Wine" [ label = "rdfs:subClassOf" ];
+	"wine:FortifiedWine" -> "wine:Wine" [ label = "rdfs:subClassOf" ];
+	"wine:WhiteWine" -> "wine:Wine" [ label = "rdfs:subClassOf" ];
+	"wine:YoungWine" -> "wine:Wine" [ label = "rdfs:subClassOf" ];
+	"wine:SparklingWine" -> "wine:Wine" [ label = "rdfs:subClassOf" ];
+	"wine:NonFortifiedWine" -> "wine:Wine" [ label = "rdfs:subClassOf" ];
+	"wine:PremiumWine" -> "wine:Wine" [ label = "rdfs:subClassOf" ];
+	"wine:Steel" -> "wine:Metal" [ label = "rdfs:subClassOf" ];
+	"wine:Cherry" -> "wine:Wood" [ label = "rdfs:subClassOf" ];
+	"wine:NonSparklingWine" -> "wine:Wine" [ label = "rdfs:subClassOf" ];
+	"wine:RoseWine" -> "wine:Wine" [ label = "rdfs:subClassOf" ];
+
+}

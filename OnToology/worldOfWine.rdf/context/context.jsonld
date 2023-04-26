@@ -1,0 +1,152 @@
+{
+  "@context" : {
+    "hasPrice" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#hasPrice",
+      "@type" : "http://www.w3.org/2001/XMLSchema#decimal"
+    },
+    "YoungWine" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#YoungWine"
+    },
+    "NonSparklingWine" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#NonSparklingWine"
+    },
+    "ofVariety" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#ofVariety",
+      "@type" : "@id"
+    },
+    "ofGrape" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#ofGrape",
+      "@type" : "@id"
+    },
+    "hasRating" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#hasRating",
+      "@type" : "http://www.w3.org/2001/XMLSchema#decimal"
+    },
+    "Winery" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Winery"
+    },
+    "Wood" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Wood"
+    },
+    "Country" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Country"
+    },
+    "locatedInCountry" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#locatedInCountry",
+      "@type" : "@id"
+    },
+    "Material" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Material"
+    },
+    "FortifiedWine" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#FortifiedWine"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "timesReviewed" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#timesReviewed",
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "hasAcidity" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#hasAcidity",
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "PremiumWine" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#PremiumWine"
+    },
+    "Award" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Award"
+    },
+    "NonFortifiedWine" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#NonFortifiedWine"
+    },
+    "topObjectProperty" : {
+      "@id" : "http://www.w3.org/2002/07/owl#topObjectProperty",
+      "@type" : "@id"
+    },
+    "Grape" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Grape"
+    },
+    "hasBody" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#hasBody",
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "Oak" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Oak"
+    },
+    "producedInYear" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#producedInYear",
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "hasCertification" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#hasCertification",
+      "@type" : "@id"
+    },
+    "WhiteWine" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#WhiteWine"
+    },
+    "HighAcidityWine" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#HighAcidityWine"
+    },
+    "Certification" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Certification"
+    },
+    "Metal" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Metal"
+    },
+    "SparklingWine" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#SparklingWine"
+    },
+    "RoseWine" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#RoseWine"
+    },
+    "fromCountry" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#fromCountry",
+      "@type" : "@id"
+    },
+    "fromWinery" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#fromWinery",
+      "@type" : "@id"
+    },
+    "grownInRegion" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#grownInRegion",
+      "@type" : "@id"
+    },
+    "Steel" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Steel"
+    },
+    "sameAs" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#sameAs"
+    },
+    "comment" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "Cherry" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Cherry"
+    },
+    "hasAward" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#hasAward",
+      "@type" : "@id"
+    },
+    "Pine" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Pine"
+    },
+    "Region" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Region"
+    },
+    "agedInMaterial" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#agedInMaterial",
+      "@type" : "@id"
+    },
+    "GrapeVariety" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#GrapeVariety"
+    },
+    "RedWine" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#RedWine"
+    },
+    "Wine" : {
+      "@id" : "http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Wine"
+    }
+  }
+}
