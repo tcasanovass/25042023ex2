@@ -1,0 +1,502 @@
+@prefix : <http://www.semanticweb.org/admin2/ontologies/2023/3/wine#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/admin2/ontologies/2023/3/wine#> .
+
+<http://www.semanticweb.org/admin2/ontologies/2023/3/wine> rdf:type owl:Ontology ;
+                                                            rdfs:comment "Author: Telm Casanovas Suriol" ;
+                                                            rdfs:label "World of wine onthology" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2000/01/rdf-schema#sameAs
+rdfs:sameAs rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#agedInMaterial
+:agedInMaterial rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain :Wine ;
+                rdfs:range :Material .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#fromCountry
+:fromCountry rdf:type owl:ObjectProperty ;
+             rdfs:domain :Wood ;
+             rdfs:range :Country .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#fromWinery
+:fromWinery rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdf:type owl:FunctionalProperty ;
+            rdfs:domain :Wine ;
+            rdfs:range :Winery .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#grownInRegion
+:grownInRegion rdf:type owl:ObjectProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain :Grape ;
+               rdfs:range :Region .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#hasAward
+:hasAward rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          rdfs:domain :Wine ;
+          rdfs:range :Award .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#hasCertification
+:hasCertification rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdfs:domain :Grape ;
+                  rdfs:range :Certification .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#locatedInCountry
+:locatedInCountry rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Winery ;
+                  rdfs:range :Country .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#ofGrape
+:ofGrape rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdfs:domain :Wine ;
+         rdfs:range :Grape .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#ofVariety
+:ofVariety rdf:type owl:ObjectProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain :Grape ;
+           rdfs:range :GrapeVariety .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#hasAcidity
+:hasAcidity rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :Wine ;
+            rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#hasBody
+:hasBody rdf:type owl:DatatypeProperty ,
+                  owl:FunctionalProperty ;
+         rdfs:domain :Wine ;
+         rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#hasPrice
+:hasPrice rdf:type owl:DatatypeProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:domain :Wine ;
+          rdfs:range xsd:decimal .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#hasRating
+:hasRating rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain :Wine ;
+           rdfs:range xsd:decimal .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#producedInYear
+:producedInYear rdf:type owl:DatatypeProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain :Wine ;
+                rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#timesReviewed
+:timesReviewed rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain :Wine ;
+               rdfs:range xsd:integer .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Award
+:Award rdf:type owl:Class ;
+       rdfs:comment "Represents the awards that could be awarded to a Wine or to a Winnery." ;
+       rdfs:sameAs "http://dbpedia.org/ontology/Award"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Certification
+:Certification rdf:type owl:Class ;
+               rdfs:comment "Represents certifications that in our domain can be holded by Wines, Winneries or Grapes." .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Cherry
+:Cherry rdf:type owl:Class ;
+        rdfs:subClassOf :Wood ;
+        rdfs:comment "Represents different types of cherry wood" .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Country
+:Country rdf:type owl:Class ;
+         rdfs:comment "Represents the different countries of the world" ;
+         rdfs:sameAs "http://dbpedia.org/ontology/country"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#FortifiedWine
+:FortifiedWine rdf:type owl:Class ;
+               rdfs:subClassOf :Wine ;
+               owl:disjointWith :NonFortifiedWine .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Grape
+:Grape rdf:type owl:Class ;
+       rdfs:comment "Represenets actual grapes that may be used, exclusively or in part, to produce n different wines. There could be instances not used for any wines too." .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#GrapeVariety
+:GrapeVariety rdf:type owl:Class ;
+              rdfs:comment "Represents the different grape varieties." .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#HighAcidityWine
+:HighAcidityWine rdf:type owl:Class ;
+                 rdfs:subClassOf :Wine .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Material
+:Material rdf:type owl:Class ;
+          rdfs:comment "Represents the root for all materials" .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Metal
+:Metal rdf:type owl:Class ;
+       rdfs:subClassOf :Material ;
+       rdfs:comment "Subclass of material that represents metallic alloys, in our domain used to represent metallic materials used in wine production." .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#NonFortifiedWine
+:NonFortifiedWine rdf:type owl:Class ;
+                  rdfs:subClassOf :Wine .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#NonSparklingWine
+:NonSparklingWine rdf:type owl:Class ;
+                  rdfs:subClassOf :Wine ;
+                  owl:disjointWith :SparklingWine .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Oak
+:Oak rdf:type owl:Class ;
+     rdfs:subClassOf :Wood ;
+     rdfs:comment "Represents different types of oak wood" .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Pine
+:Pine rdf:type owl:Class ;
+      rdfs:subClassOf :Wood ;
+      rdfs:comment "Represents different types of pine wood" .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#PremiumWine
+:PremiumWine rdf:type owl:Class ;
+             rdfs:subClassOf :Wine .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#RedWine
+:RedWine rdf:type owl:Class ;
+         rdfs:subClassOf :Wine .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Region
+:Region rdf:type owl:Class ;
+        rdfs:comment "Represents different regions in a country or spanned in multiple countries." ;
+        rdfs:sameAs "https://dbpedia.org/ontology/Region"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#RoseWine
+:RoseWine rdf:type owl:Class ;
+          rdfs:subClassOf :Wine .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#SparklingWine
+:SparklingWine rdf:type owl:Class ;
+               rdfs:subClassOf :Wine .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Steel
+:Steel rdf:type owl:Class ;
+       rdfs:subClassOf :Metal ;
+       rdfs:comment "Represents steel types, in our domain used for steel alloys used in wine aging ie.: steel 304, 316,..." .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#WhiteWine
+:WhiteWine rdf:type owl:Class ;
+           rdfs:subClassOf :Wine .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Wine
+:Wine rdf:type owl:Class ;
+      owl:equivalentClass [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasAcidity ;
+                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:integer
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasBody ;
+                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:integer
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasRating ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:decimal
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasAcidity ;
+                            owl:maxQualifiedCardinality "3"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:integer
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasBody ;
+                            owl:maxQualifiedCardinality "5"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:integer
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasRating ;
+                            owl:maxQualifiedCardinality "5"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:decimal
+                          ] ;
+      rdfs:comment "Represents different wines produced by winneries." .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Winery
+:Winery rdf:type owl:Class ;
+        owl:equivalentClass [ rdf:type owl:Restriction ;
+                              owl:onProperty :locatedInCountry ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :Country
+                            ] ;
+        rdfs:comment "Represents the different wineries which produce wines." .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Wood
+:Wood rdf:type owl:Class ;
+      rdfs:subClassOf :Material ;
+      rdfs:comment "Represents kinds of wood, in our domain represents wood types used to make barrels for aging wine." .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#YoungWine
+:YoungWine rdf:type owl:Class ;
+           rdfs:subClassOf :Wine .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#CabernetSauvignon
+:CabernetSauvignon rdf:type owl:NamedIndividual ,
+                            :GrapeVariety .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Chardonnay
+:Chardonnay rdf:type owl:NamedIndividual ,
+                     :GrapeVariety .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Espanya
+:Espanya rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#França
+:França rdf:type owl:NamedIndividual ,
+                 :Country .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#FrenchOak
+:FrenchOak rdf:type owl:NamedIndividual ,
+                    :Oak ;
+           :fromCountry :França .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#JeanLeon
+:JeanLeon rdf:type owl:NamedIndividual ,
+                   :Winery ;
+          :locatedInCountry :Espanya .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Merlot
+:Merlot rdf:type owl:NamedIndividual ,
+                 :GrapeVariety .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Penedès
+:Penedès rdf:type owl:NamedIndividual ,
+                  :Region ;
+         :locatedInCountry :Espanya .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#RaimMerlot
+:RaimMerlot rdf:type owl:NamedIndividual ,
+                     :Grape ;
+            :ofVariety :Merlot .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Raim_Vinya_La_Scala_Gran_Reserva_Cabernet_Sauvignon
+:Raim_Vinya_La_Scala_Gran_Reserva_Cabernet_Sauvignon rdf:type owl:NamedIndividual ,
+                                                              :Grape ;
+                                                     :grownInRegion :Penedès ;
+                                                     :ofVariety :CabernetSauvignon .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#ViMultivarietat
+:ViMultivarietat rdf:type owl:NamedIndividual ,
+                          :Wine ;
+                 :ofGrape :RaimMerlot ,
+                          :Raim_Vinya_La_Scala_Gran_Reserva_Cabernet_Sauvignon ;
+                 :hasAcidity 5 .
+
+
+###  http://www.semanticweb.org/admin2/ontologies/2023/3/wine#Vinya_La_Scala_Gran_Reserva_Cabernet_Sauvignon
+:Vinya_La_Scala_Gran_Reserva_Cabernet_Sauvignon rdf:type owl:NamedIndividual ,
+                                                         :RedWine ;
+                                                :agedInMaterial :FrenchOak ;
+                                                :fromWinery :JeanLeon ;
+                                                :ofGrape :Raim_Vinya_La_Scala_Gran_Reserva_Cabernet_Sauvignon ;
+                                                :hasAcidity 3 ;
+                                                :hasBody 4 ;
+                                                :hasPrice 41.9 ;
+                                                :hasRating 4.3 ;
+                                                :producedInYear 2013 ;
+                                                :timesReviewed 177 .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :RedWine
+                :RoseWine
+                :WhiteWine
+              )
+] .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+<urn:swrl:var#wine> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#price> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#year> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Wine ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#wine>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasPrice ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#wine> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#price>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first <urn:swrl:var#price> ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 99 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :PremiumWine ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#wine>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Wine ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#wine>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :producedInYear ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#wine> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#year>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first <urn:swrl:var#year> ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 2019 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :YoungWine ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#wine>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasAcidity ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#wine> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> 5
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :HighAcidityWine ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#wine>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
